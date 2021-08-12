@@ -152,6 +152,8 @@ public class MainActivity extends AppCompatActivity {
                     md.setCatInt(model.getCatInt());
                     md.setTitle(model.getTitle());
                     md.setCategory(model.getCategory());
+                    md.setDesc(model.getDesc());
+                    md.setUid(model.getUid());
                     data.add(md);
 
                 }

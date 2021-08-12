@@ -13,6 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -71,6 +73,12 @@ public class RecAdapter extends RecyclerView.Adapter {
                                 public void onClick(DialogInterface dialog, int id) {
 
                                     Intent intent = new Intent(context, editTask.class);
+                                    intent.putExtra("title",data.get(position).getTitle());
+                                    intent.putExtra("category",data.get(position).getCategory());
+                                    intent.putExtra("catInt",data.get(position).getCatInt());
+                                    intent.putExtra("uid",data.get(position).getUid());
+                                    intent.putExtra("desc",data.get(position).getDesc());
+
                                     context.startActivity(intent);
 
                                     dialog.cancel();
@@ -81,14 +89,15 @@ public class RecAdapter extends RecyclerView.Adapter {
                             "Delete Task",
                             new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int id) {
-                                    DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("njnvjnjnjnj");
-                                  //  ref1.child(data.get(position).).removeValue();
+
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("task").child(user.getUid()).child(data.get(position).getTitle());
+                                    ref1.removeValue();
                                 }
                             });
 
                     AlertDialog alert11 = builder1.create();
                     alert11.show();
-
 
 
                 }
@@ -105,6 +114,44 @@ public class RecAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
 
+
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                    builder1.setMessage("Task Manager here..");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "Edit Task",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    Intent intent = new Intent(context, editTask.class);
+                                    intent.putExtra("title",data.get(position).getTitle());
+                                    intent.putExtra("category",data.get(position).getCategory());
+                                    intent.putExtra("catInt",data.get(position).getCatInt());
+                                    intent.putExtra("uid",data.get(position).getUid());
+                                    intent.putExtra("desc",data.get(position).getDesc());
+
+                                    context.startActivity(intent);
+
+                                    dialog.cancel();
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "Delete Task",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("task").child(user.getUid()).child(data.get(position).getTitle());
+                                    ref1.removeValue();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+
+
                 }
             });
 
@@ -119,6 +166,43 @@ public class RecAdapter extends RecyclerView.Adapter {
                 @Override
                 public void onClick(View v) {
 
+
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                    builder1.setMessage("Task Manager here..");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "Edit Task",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    Intent intent = new Intent(context, editTask.class);
+                                    intent.putExtra("title",data.get(position).getTitle());
+                                    intent.putExtra("category",data.get(position).getCategory());
+                                    intent.putExtra("catInt",data.get(position).getCatInt());
+                                    intent.putExtra("uid",data.get(position).getUid());
+                                    intent.putExtra("desc",data.get(position).getDesc());
+
+                                    context.startActivity(intent);
+
+                                    dialog.cancel();
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "Delete Task",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("task").child(user.getUid()).child(data.get(position).getTitle());
+                                    ref1.removeValue();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
+
                 }
             });
 
@@ -131,6 +215,43 @@ public class RecAdapter extends RecyclerView.Adapter {
             ((mvh3) holder).card3.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+
+
+                    AlertDialog.Builder builder1 = new AlertDialog.Builder(context);
+                    builder1.setMessage("Task Manager here..");
+                    builder1.setCancelable(true);
+
+                    builder1.setPositiveButton(
+                            "Edit Task",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    Intent intent = new Intent(context, editTask.class);
+                                    intent.putExtra("title",data.get(position).getTitle());
+                                    intent.putExtra("category",data.get(position).getCategory());
+                                    intent.putExtra("catInt",data.get(position).getCatInt());
+                                    intent.putExtra("uid",data.get(position).getUid());
+                                    intent.putExtra("desc",data.get(position).getDesc());
+
+                                    context.startActivity(intent);
+
+                                    dialog.cancel();
+                                }
+                            });
+
+                    builder1.setNegativeButton(
+                            "Delete Task",
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+
+                                    FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+                                    DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("task").child(user.getUid()).child(data.get(position).getTitle());
+                                    ref1.removeValue();
+                                }
+                            });
+
+                    AlertDialog alert11 = builder1.create();
+                    alert11.show();
 
                 }
             });
@@ -162,7 +283,7 @@ public class RecAdapter extends RecyclerView.Adapter {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         DatabaseReference ref1 = FirebaseDatabase.getInstance().getReference("njnvjnjnjnj");
-                     //   ref1.child(data.get(position)./* jisko delete krna h i mean jis key value k andar wale ko delete krna h*/).removeValue();
+                        //   ref1.child(data.get(position)./* jisko delete krna h i mean jis key value k andar wale ko delete krna h*/).removeValue();
                     }
                 });
 

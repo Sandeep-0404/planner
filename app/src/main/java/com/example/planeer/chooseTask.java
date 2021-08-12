@@ -69,14 +69,14 @@ public class chooseTask extends BottomSheetDialogFragment implements AdapterView
                 else if (category.equals("Games")) catInt = 3;
                 else catInt = -1;
 
-                DatabaseReference db = FirebaseDatabase.getInstance().getReference("task").child(uid);
+                DatabaseReference db = FirebaseDatabase.getInstance().getReference("task").child(uid).child(title.getText().toString().trim());
                 model mp = new model();
                 mp.setCatInt(catInt);
                 mp.setCategory(category);
                 mp.setUid(uid);
                 mp.setTitle(title.getText().toString().trim());
                 mp.setDesc(desc.getText().toString().trim());
-                db.push().setValue(mp);
+                db.setValue(mp);
                 Toast.makeText(getContext(), "Task Successfully added", Toast.LENGTH_SHORT).show();
 
                 title.setText("");
