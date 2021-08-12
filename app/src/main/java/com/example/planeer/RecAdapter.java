@@ -57,8 +57,8 @@ public class RecAdapter extends RecyclerView.Adapter {
 
 
         if (holder instanceof mvh0) {
-            ((mvh0) holder).title.setText(data.get(getItemCount() - position - 1).getTitle());
-            ((mvh0) holder).category.setText(data.get(getItemCount() - position - 1).getCategory());
+            ((mvh0) holder).title.setText(data.get(position).getTitle());
+            ((mvh0) holder).category.setText(data.get(position).getCategory());
 
             ((mvh0) holder).card0.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -106,8 +106,8 @@ public class RecAdapter extends RecyclerView.Adapter {
 
         } else if (holder instanceof mvh1) {
 
-            ((mvh1) holder).title1.setText(data.get(getItemCount() - position - 1).getTitle());
-            ((mvh1) holder).category1.setText(data.get(getItemCount() - position - 1).getCategory());
+            ((mvh1) holder).title1.setText(data.get(position).getTitle());
+            ((mvh1) holder).category1.setText(data.get(position).getCategory());
 
 
             ((mvh1) holder).card1.setOnClickListener(new View.OnClickListener() {
@@ -158,8 +158,8 @@ public class RecAdapter extends RecyclerView.Adapter {
 
         } else if (holder instanceof mvh2) {
 
-            ((mvh2) holder).title2.setText(data.get(getItemCount() - position - 1).getTitle());
-            ((mvh2) holder).category2.setText(data.get(getItemCount() - position - 1).getCategory());
+            ((mvh2) holder).title2.setText(data.get(position).getTitle());
+            ((mvh2) holder).category2.setText(data.get(position).getCategory());
 
 
             ((mvh2) holder).card2.setOnClickListener(new View.OnClickListener() {
@@ -208,8 +208,8 @@ public class RecAdapter extends RecyclerView.Adapter {
 
 
         } else {
-            ((mvh3) holder).title3.setText(data.get(getItemCount() - position - 1).getTitle());
-            ((mvh3) holder).category3.setText(data.get(getItemCount() - position - 1).getCategory());
+            ((mvh3) holder).title3.setText(data.get(position).getTitle());
+            ((mvh3) holder).category3.setText(data.get(position).getCategory());
 
 
             ((mvh3) holder).card3.setOnClickListener(new View.OnClickListener() {
